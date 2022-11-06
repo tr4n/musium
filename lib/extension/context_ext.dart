@@ -7,6 +7,10 @@ extension ContextUtils on BuildContext {
     return height - padding.top - padding.bottom;
   }
 
+  double get safeTopPadding => MediaQuery.of(this).padding.top;
+
+  double get safeBottomPadding => MediaQuery.of(this).padding.bottom;
+
   double getWidth() {
     double width = MediaQuery.of(this).size.width;
     return width;
