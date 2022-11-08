@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:musium/extension/context_ext.dart';
-import 'package:musium/ui/screens/main_screen.dart';
+import 'package:musium/ui/screens/screens.dart';
 
 import '../../resources/resources.dart';
 
@@ -14,7 +14,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   _onTapStart() {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const MyHomePage(title: "")));
+        MaterialPageRoute(builder: (context) => const MainScreen()));
   }
 
   @override
