@@ -15,7 +15,7 @@ class Routes {
   static String get initScreen => splashScreen;
 
   static final routes = <String, WidgetBuilder>{
-    homeScreen: (context) => const MyHomePage(title: ""),
+    homeScreen: (context) => const HomeScreen(),
     splashScreen: (context) => const SplashScreen(),
   };
 }
