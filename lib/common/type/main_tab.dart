@@ -1,7 +1,7 @@
 enum MainTab {
-  home(0, "Home", "assets/icons/ic_home.png"),
+  home(0, "Home", "assets/icons/ic_library.png"),
   explore(1, "Explore", "assets/icons/ic_explore.png"),
-  library(2, "Library", "assets/icons/ic_library.png");
+  library(2, "Library", "assets/icons/ic_home.png");
 
   final int id;
   final String name;

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:musium/common/type/main_tab.dart';
 import 'package:musium/ui/screens/screens.dart';
@@ -62,8 +64,8 @@ class _MainScreenState extends State<MainScreen> {
                       padding: const EdgeInsets.all(Sizes.size8),
                       child: Image.asset(
                         screen.tab.iconPath,
-                        width: 24,
-                        height: 24,
+                        width: 16,
+                        height: 16,
                         color: _getSelectedColor(screen.tab.id),
                       ),
                     ),
@@ -71,18 +73,13 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 )
                 .toList(),
-            onTap: (index) => _selectedTab = index,
+            onTap: (index) => setState(() => _selectedTab = index),
             currentIndex: _selectedTab,
             selectedItemColor: AppColor.blue41C3D6,
+            unselectedItemColor: Colors.white,
+            unselectedFontSize: 11,
+            selectedFontSize: 12,
             backgroundColor: Colors.black,
-          ),
-        ),
-        Positioned(
-          bottom: 0,
-          child: Container(
-            width: double.infinity,
-            height: 500,
-            color: Colors.red,
           ),
         ),
       ],
