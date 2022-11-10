@@ -17,10 +17,12 @@ class Sizes {
   static const double size22 = 22;
   static const double size24 = 24;
   static const double size26 = 26;
+  static const double size27 = 27;
   static const double size28 = 28;
   static const double size30 = 30;
   static const double size32 = 32;
   static const double size40 = 40;
+  static const double size44 = 44;
   static const double size100 = 100;
   static const double size150 = 150;
 }

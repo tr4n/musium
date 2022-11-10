@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:musium/common/common.dart';
-import 'package:musium/common/type/main_tab.dart';
-import 'package:musium/ui/components/components.dart';
+import 'package:musium/extension/context_ext.dart';
+
+import '../../resources/resources.dart';
+import '../components/components.dart';
 
 class ExploreScreen extends StatefulWidget {
   const ExploreScreen({super.key});
@@ -12,44 +13,118 @@ class ExploreScreen extends StatefulWidget {
 }
 
 class _ExploreScreenState extends State<ExploreScreen> {
-  int _counter = 0;
-  final _screens = [ScreenTab(MainTab.home, const ExploreScreen())];
+  final _textController = TextEditingController();
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  _onSearchChanged(String text) {}
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(""),
+    return Stack(children: [
+      Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.black,
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      Container(
+        width: double.infinity,
+        height: 300,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.black12,
+              Color(0x1A0E0E0E),
+              Color(0xb3102b2d),
+              Color(0xb306a0b5),
+            ],
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+          ),
+        ),
+        // color: Colors.red,
+      ),
+      _exploreBody(),
+      Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          width: double.infinity,
+          height: 100,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xE6000000),
+                Color(0x99000000),
+                Colors.transparent,
+              ],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          ),
+          // color: Colors.red,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    ]);
+  }
+
+  Widget _exploreBody() {
+    return Column(
+      children: [
+        SizedBox(height: context.safeTopPadding + Sizes.size32),
+        _header(),
+        const SizedBox(height: Sizes.size28),
+        _searchBar(),
+      ],
+    );
+  }
+
+  Widget _header() {
+    return Row(
+      children: [
+        const SizedBox(width: Sizes.size40),
+        BlendMask(
+          opacity: 1.0,
+          blendMode: BlendMode.screen,
+          child: Image.asset(
+            "assets/icons/ic_musium_logo.png",
+            width: 48,
+            height: 48,
+          ),
+        ),
+        DefaultTextStyle(
+            style: TextStyle(
+                color: AppColor.blue41C3D6,
+                fontSize: Sizes.size27,
+                fontWeight: FontWeight.w700),
+            child: Text("Search"))
+      ],
+    );
+  }
+
+  Widget _searchBar() {
+    return Container(
+      // height: Sizes.size44,
+      margin: const EdgeInsets.symmetric(horizontal: Sizes.size22),
+      alignment: Alignment.centerLeft,
+      decoration: BoxDecoration(
+          color: AppColor.whiteD9D9D9,
+          borderRadius: const BorderRadius.all(Radius.circular(Sizes.size18))),
+      child: TextField(
+        controller: _textController,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: "Songs, Artists, Podcasts & More",
+          prefixIcon: Icon(Icons.search,
+              color: AppColor.gray979797, size: Sizes.size20),
+          hintStyle:
+              TextStyle(color: AppColor.gray8A9A9D, fontSize: Sizes.size13),
+        ),
+        textInputAction: TextInputAction.search,
+        style: const TextStyle(fontSize: Sizes.size13, color: Colors.white),
+        textAlignVertical: TextAlignVertical.center,
+        onChanged: _onSearchChanged,
+        onEditingComplete: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+      ),
     );
   }
 }
