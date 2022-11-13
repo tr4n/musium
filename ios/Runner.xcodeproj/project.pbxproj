@@ -14,6 +14,7 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		B7FBF413292128B2004F9D7C /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FBF412292128B2004F9D7C /* SpotifyiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,7 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7FBF412292128B2004F9D7C /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = "../../../../../../Downloads/ios-sdk-1.2.2/SpotifyiOS.framework"; sourceTree = "<group>"; };
 		E23283DAAC88F73758F6BC06 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -55,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82EE9A4C4CD0233B992F2654 /* Pods_Runner.framework in Frameworks */,
+				B7FBF413292128B2004F9D7C /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +67,7 @@
 		1F0D6FA33784AC1D823F04B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B7FBF412292128B2004F9D7C /* SpotifyiOS.framework */,
 				E23283DAAC88F73758F6BC06 /* Pods_Runner.framework */,
 			);
 			name = Frameworks;
@@ -121,7 +125,6 @@
 				87F6EB5F6CDD524E182A58F6 /* Pods-Runner.release.xcconfig */,
 				1FED14FA1B4A7FF18E861586 /* Pods-Runner.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

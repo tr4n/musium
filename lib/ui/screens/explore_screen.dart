@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:musium/common/type/explore_sections.dart';
 import 'package:musium/extension/context_ext.dart';
+import 'package:musium/ui/components/item_genre.dart';
 
 import '../../resources/resources.dart';
 import '../components/components.dart';
@@ -47,7 +49,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
         alignment: Alignment.bottomCenter,
         child: Container(
           width: double.infinity,
-          height: 100,
+          height: 0,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -71,7 +73,15 @@ class _ExploreScreenState extends State<ExploreScreen> {
         SizedBox(height: context.safeTopPadding + Sizes.size32),
         _header(),
         const SizedBox(height: Sizes.size28),
-        _searchBar(),
+        Expanded(
+          child: Column(
+            children: [
+              _searchBar(),
+              const SizedBox(height: Sizes.size28),
+              Expanded(child: _suggestion())
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -125,6 +135,34 @@ class _ExploreScreenState extends State<ExploreScreen> {
           FocusManager.instance.primaryFocus?.unfocus();
         },
       ),
+    );
+  }
+
+  Widget _suggestion() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const DefaultTextStyle(
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: Sizes.size20,
+              fontWeight: FontWeight.w700),
+          child: Text("Browse All", textAlign: TextAlign.start),
+        ),
+        const SizedBox(height: Sizes.size16),
+        Expanded(
+          child: GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 2,
+            mainAxisSpacing: Sizes.size12,
+            crossAxisSpacing: Sizes.size12,
+            scrollDirection: Axis.vertical,
+            childAspectRatio: 30 / 21,
+            children: ExploreSection.values.map((e) => ItemExplore(e)).toList(),
+          ),
+        ),
+      ],
     );
   }
 }

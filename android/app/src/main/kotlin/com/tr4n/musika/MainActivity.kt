@@ -1,4 +1,4 @@
-package com.tr4n.musium
+package com.tr4n.musika
 
 import android.os.Build
 import android.os.Bundle

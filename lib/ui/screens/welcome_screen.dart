@@ -14,7 +14,7 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   _onTapStart() {
     Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const MainScreen()));
+        MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 
   @override
